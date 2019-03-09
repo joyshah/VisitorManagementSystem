@@ -1,4 +1,4 @@
-package com.example.vms.service;
+package com.example.vms.util;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -65,6 +65,18 @@ public class QRCodeUtil {
 
 			imageString = Base64.getEncoder().encodeToString(imageBytes);
 
+			bos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return imageString;
+	}
+
+	public String encodeToString(byte[] data, String type) {
+		String imageString = null;
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		try {
+			imageString = Base64.getEncoder().encodeToString(data);
 			bos.close();
 		} catch (IOException e) {
 			e.printStackTrace();

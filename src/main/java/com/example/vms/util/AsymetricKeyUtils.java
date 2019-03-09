@@ -1,4 +1,4 @@
-package com.example.vms.service;
+package com.example.vms.util;
 
 import java.io.File;
 import java.io.FileInputStream;

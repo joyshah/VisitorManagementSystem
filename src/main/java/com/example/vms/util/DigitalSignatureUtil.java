@@ -1,4 +1,4 @@
-package com.example.vms.service;
+package com.example.vms.util;
 
 import java.security.KeyPair;
 import java.security.SecureRandom;
@@ -31,6 +31,8 @@ public class DigitalSignatureUtil {
 			Signature signature = Signature.getInstance("SHA256WithDSA");
 			signature.initVerify(keyPair.getPublic());
 			signature.update(data.getBytes("UTF-8"));
+			System.out.println(data+" "+incomingSignature);
+			
 			boolean verified = signature.verify(incomingSignature);
 			return verified;
 		} catch (Exception e) {
