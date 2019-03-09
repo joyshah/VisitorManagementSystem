@@ -43,7 +43,7 @@ public class VisitorService {
 		VendorDetails vendorEntity = vendorDetailsRespository.save(vendorDetails);
 		String qrCode = "VIS" + vendorEntity.getId();
 		try {
-			byte[] digitalSignatureByte = DigitalSignatureUtil.getSign("abcd2", asymetricKeyUtils.getKeyValuePair());
+			byte[] digitalSignatureByte = DigitalSignatureUtil.getSign(qrCode, asymetricKeyUtils.getKeyValuePair());
 			String digitalSignatureString = Base64.getEncoder().encodeToString(digitalSignatureByte);
 			qrCode += "-" + digitalSignatureString;
 			qrImg = qrCodeUtil.createQRImage(qrCode);
